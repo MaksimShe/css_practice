@@ -7,18 +7,42 @@ body{
 .people{
   cursor: default;
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  gap: 30px 40px;
+  grid-template-columns: repeat(4, 220px);
   justify-content: center;
   align-items: center;
   width: 890px;
+  column-gap: 10px;
 
   &__person{
     width: 200px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 8px;
+    transition: scale 1s;
+
+    &:hover{
+      background-color: #EEEEEE;
+      border-radius: 10px;
+      scale: 1.2;
+      z-index: 1;
+      img{
+        border-radius: 60px;
+      }
+      .people__extra{
+        opacity: 1;
+      }
+      .people__pay::before{
+        content: '$';
+      }
+      .people__pay::after{
+        content: 'M';
+      }
+      .people__sport::after{
+        content: ',';
+      }
+    }
   }
 
   &__details{
@@ -66,11 +90,15 @@ body{
     align-items: center;
 
   }
-  &__sport{
+  &__extra{
     opacity: 0;
-  }
-  &__pay{
-    opacity: 0;
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-top: 8px;
   }
 }
 
@@ -79,11 +107,12 @@ img{
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+    transition: border-radius 1s;
 }
 
 @media (max-width: 1000px){
   .people{
     grid-template-columns: repeat(2, 200px);
-    gap: 30px 40px;
+    column-gap: 30px;
   }
 }
