@@ -5,20 +5,33 @@ body{
 }
 
 .people{
+  cursor: default;
   display: grid;
   grid-template-columns: repeat(4, 200px);
   gap: 30px 40px;
   justify-content: center;
+  align-items: center;
   width: 890px;
 
   &__person{
     width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
   }
+
+  &__details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
 
   &__photo{
     width: 200px;
     height: 200px;
-    object-fit: cover;
     border-radius: 50%;
     position: relative;
   }
@@ -42,12 +55,15 @@ body{
     letter-spacing: 0%;
     text-align: center;
     color: #8B0000;
-    top: 50%;
-    left: 80%;
-    background-color: black;
+    top: 88px;
+    right: 10px;
+    background-color: white;
     border-radius: 50%;
     height: 32px;
     width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
   }
   &__sport{
@@ -56,6 +72,13 @@ body{
   &__pay{
     opacity: 0;
   }
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 @media (max-width: 1000px){
